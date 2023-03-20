@@ -1,0 +1,42 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Activities</h4>
+      <a routerLink="/admin/addactivities">Add Activity</a>
+      <br>
+      <h5>List Of Activities</h5>
+      <table *ngIf="activities.length > 0 " datatable="ng"  id="listactivities" >
+        <thead>
+        <tr>
+          <th>Activity Name</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let a of activities">
+          <td>{{a.actType}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deleteActivity(a._id)"></i></td>
+          <td><a routerLink="/admin/editactivity/{{a._id}}"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

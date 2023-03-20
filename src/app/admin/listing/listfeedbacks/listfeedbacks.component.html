@@ -1,0 +1,50 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Feedbacks</h4>
+      <a routerLink="/admin/addfeedback">Add Feedback</a>
+      <br>
+      <h5>List Of Activities</h5>
+      <table *ngIf="feedbacks.length > 0 "  datatable="ng"  id="listfeedbacks" >
+        <thead>
+        <tr>
+          <th>User</th>
+          <th>Business Name of a Vendor</th>
+          <th>Business Stars</th>
+          <th>Comment</th>
+          <th>Visible</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let f of feedbacks">
+          <td>{{f.user.firstName}} </td>
+          <td>{{f.business.businessName}}</td>
+          <td>{{f.businessStars}} </td>
+          <td>{{f.comment}} </td>
+          <td>{{f.isVisible}} </td>
+          <td><i class="typcn typcn-trash pointer" title="delete" ></i></td>
+          <td><a routerLink="/admin/editfeedback/"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

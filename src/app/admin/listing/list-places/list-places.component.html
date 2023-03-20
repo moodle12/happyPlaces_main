@@ -1,0 +1,57 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Places</h4>
+      <a routerLink="/admin/addplaces">Add Place</a>
+      <br>
+      <h5>List Of Places</h5>
+      <table *ngIf="places.length > 0 " [dtOptions]="dtOptions" datatable="ng"  id="list-places" >
+        <thead>
+        <tr>
+          <th>PlaceName</th>
+          <th>Place Image</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Total Price</th>
+          <th>Activity</th>
+          <th>Special Instruction</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of places">
+          <td>{{p.placeName}}</td>
+          <td><img src="{{p.placeImage}}" alt=""></td>
+          <td>{{p.lat}}</td>
+          <td>{{p.long}}</td>
+          <td>{{p.title}}</td>
+          <td>{{p.description}}</td>
+          <td>{{p.totalPrice}}</td>
+          <td>{{p.activity.actType}}</td>
+          <td>{{p.specialInstruction}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deletePlace(p._id)"></i></td>
+          <td><a routerLink="/admin/editplace/{{p._id}}"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

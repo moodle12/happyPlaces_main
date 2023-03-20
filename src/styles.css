@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+.pointer
+{
+  color: red;
+  font-size: larger;
+}
+
+.pointer:hover
+{
+  cursor: pointer;
+  color: red;
+  font-size: larger;
+}

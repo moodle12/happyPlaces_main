@@ -1,0 +1,114 @@
+<!--
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text"  [(ngModel)]="firstName" class="form-control" aria-describedby="emailHelp">
+      <span class="error">{{firstNameError}}</span>
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name:</label>
+      <input type="text" [(ngModel)]="lastName" class="form-control" id="lname">
+    </div>
+    <div class="form-group">
+      <label for="add">Address:</label>
+      <br>
+      <textarea [(ngModel)]="address" name="" id="add" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="mob">Mobile Number:</label>
+      <input type="number" [(ngModel)]="mobileNo" class="form-control" id="mob">
+    </div>
+    <div class="form-group">
+      <label for="dob">Date Of Birth:</label>
+      <input type="date" [(ngModel)]="dob" class="form-control" id="dob">
+    </div>
+    <div>
+      <label for="male">Male:</label>
+      <input type="radio" [(ngModel)]="gender" name="gend"  id="male">
+      <label for="female">Female:</label>
+      <input type="radio" [(ngModel)]="gender" name="gend"  id="female">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="text" [(ngModel)]="email" class="form-control" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <span class="error">{{emailError}}</span>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="password" class="form-control">
+      </div>
+
+      <div>
+      <button type="submit" (click)="signup()" class="btn btn-primary">Submit</button>
+    </div> -->
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <!-- <img src="../../images/logo-dark.svg" alt="logo"> -->
+              </div>
+              <h4>New here?</h4>
+              <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="firstName"  class="form-control form-control-lg" id="exampleInputUsername1" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="lastName"  class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <textarea [(ngModel)]="address" class="form-control form-control-lg"  name="" id="add" cols="30" rows="10" placeholder="Address"></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="number" [(ngModel)]="mobileNo" class="form-control form-control-lg" id="mob" placeholder="Mobile Number">
+                </div>
+                <div class="form-group">
+                  <input type="date" [(ngModel)]="dob" class="form-control form-control-lg" id="dob" >
+                </div>
+                <div class="form-group">
+                  <label for="male">Male:</label>
+                  <input type="radio" [(ngModel)]="gender" value="male" name="gend"  id="male">
+                  <label for="female">Female:</label>
+                  <input type="radio" [(ngModel)]="gender" value="female" name="gend"  id="female">
+                </div>
+                <div class="form-group">
+                  <input type="email" [(ngModel)]="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <!-- <div class="form-group">
+                  <select class="form-control form-control-lg" id="exampleFormControlSelect2">
+                    <option>Country</option>
+                    <option>United States of America</option>
+                    <option>United Kingdom</option>
+                    <option>India</option>
+                    <option>Germany</option>
+                    <option>Argentina</option>
+                  </select>
+                </div> -->
+                <div class="form-group">
+                  <input type="password" [(ngModel)]="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <!-- <div class="mb-4">
+                  <div class="form-check">
+                    <label class="form-check-label text-muted">
+                      <input type="checkbox" class="form-check-input">
+                      I agree to all Terms & Conditions
+                    </label>
+                  </div>
+                </div> -->
+                <div class="mt-3">
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" (click)="signup()" >SIGN UP</button>
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  Already have an account? <a routerLink="/login" class="text-primary">Login</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>

@@ -1,0 +1,46 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Posts</h4>
+      <a routerLink="/admin/addposts">Add a Post</a>
+      <br>
+      <h5>List Of Activities</h5>
+      <table *ngIf="posts.length > 0 " datatable="ng"  id="listposts" >
+        <thead>
+        <tr>
+          <th>Place Name</th>
+          <th>Likes</th>
+          <th>Verified</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let p of posts">
+          <td>{{p.place.placeName}}</td>
+          <td>{{p.likes}}</td>
+          <td>{{p.isVerified}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deletePost(p._id)"></i></td>
+          <td><a routerLink="/admin/editpost/{{p._id}}"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

@@ -1,0 +1,52 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Vendors</h4>
+      <a routerLink="/admin/addvendor">Add Vendor</a>
+      <br>
+      <h5>List Of Vendors</h5>
+      <table *ngIf="vendors.length > 0 " [dtOptions]="dtOptions" datatable="ng"  id="listvendors" >
+        <thead>
+        <tr>
+          <th>User</th>
+          <th>Vendor's Business Name</th>
+          <th>Vendor Type</th>
+          <th>Vendor Address</th>
+          <th>Consumer Contact</th>
+          <th>Email Address</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let v of vendors">
+          <td>{{v.user.firstName}}</td>
+          <td>{{v.businessName}}</td>
+          <td>{{v.businessType}}</td>
+          <td>{{v.businessAddress}}</td>
+          <td>{{v.consumerContact}}</td>
+          <td>{{v.emailAddress}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deleteVendor(v._id)"></i></td>
+          <td><a routerLink="/admin/editvendor/"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

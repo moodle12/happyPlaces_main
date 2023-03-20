@@ -1,0 +1,54 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Users</h4>
+      <a routerLink="/admin/adduser">Add User</a>
+      <br>
+      <h5>List Of Users</h5>
+      <table *ngIf="users.length > 0 " datatable="ng"  id="listuser" >
+        <thead>
+        <tr>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Address</th>
+          <!-- <th>Gender</th> -->
+          <th>Date Of Birth</th>
+          <th>User Type</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users">
+          <td>{{u.firstName}}</td>
+          <td>{{u.lastName}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.mobileNo}}</td>
+          <td>{{u.address}}</td>
+          <!-- <td>{{u.gender}}</td> -->
+          <td>{{u.dob}}</td>
+          <td>{{u.userType.userTypeName}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deleteUser(u._id)"></i></td>
+          <td><a routerLink="/admin/edituser/{{u._id}}"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

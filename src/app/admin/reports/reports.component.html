@@ -1,0 +1,78 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h1 style="text-align: center;">Manage Reports</h1>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="first hero">
+        <img class="hero-profile-img" width="100%" src="https://tse1.mm.bing.net/th?id=OIP.QyrZJH_-Rveu0b6Rnq_oRgHaG0&pid=Api&P=0" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+          <img src="https://img.icons8.com/external-outline-stroke-bomsymbols-/91/null/external-booking-business-marketing-outline-set-2-outline-stroke-bomsymbols-.png"/>
+        </div>
+        <div class="hero-description">
+          <p>View Bookings Report.</p>
+        </div>
+        <div  class="hero-date">
+          <p>As Of: {{currentdate}}/{{currentmonth}}/{{currentyear}}</p>
+        </div>
+        <div class="hero-btn">
+          <button routerLink="/admin/bookingreports">View</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="second hero">
+        <img class="hero-profile-img" width="100%" src="https://tse1.mm.bing.net/th?id=OIP.QyrZJH_-Rveu0b6Rnq_oRgHaG0&pid=Api&P=0" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+          <img src="https://www.freeiconspng.com/uploads/places-icon-5.png" alt="">
+        </div>
+        <div class="hero-description">
+          <p>View Places Report.</p>
+        </div>
+        <div  class="hero-date">
+          <p>As Of: {{currentdate}}/{{currentmonth}}/{{currentyear}}</p>
+        </div>
+        <div class="hero-btn">
+          <button routerLink="/admin/listplaces">View</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="third hero">
+        <img class="hero-profile-img" width="100%" src="https://tse1.mm.bing.net/th?id=OIP.QyrZJH_-Rveu0b6Rnq_oRgHaG0&pid=Api&P=0" alt="">
+        <div class="hero-description-bk"></div>
+        <div class="hero-logo">
+          <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/delivery_man_parcel.png" alt="">
+        </div>
+        <div class="hero-description">
+          <p>View Vendors Report.</p>
+        </div>
+        <div  class="hero-date">
+          <p>As Of: {{currentdate}}/{{currentmonth}}/{{currentyear}}</p>
+        </div>
+        <div class="hero-btn">
+          <button routerLink="/admin/listvendors">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

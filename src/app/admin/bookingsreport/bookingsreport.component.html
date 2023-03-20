@@ -1,0 +1,52 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-sidebar></app-sidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Bookings Report</h4>
+      <br>
+      <div class="form-group">
+        Statuses: <select [(ngModel)]="status" (change)="getstatus()">
+          <option value="-1">Select Status</option>
+          <option *ngFor="let s of statuses"  value="{{s._id}}">{{s.statusName}}</option>
+      </select>
+      </div>
+    <br>
+    <table *ngIf="users.length > 0" [dtOptions]="dtOptions" datatable="ng"  id="listbookingreport" >
+      <thead>
+      <tr>
+        <th>User's Name</th>
+        <th>Activity</th>
+        <th>Place</th>
+        <th>No. Of Persons</th>
+        <th>Date of Booking</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let b of users">
+        <td>{{b.user.firstName}}</td>
+        <td>{{b.act.actType}}</td>
+        <td>{{b.place.placeName}}</td>
+        <td>{{b.noOfPerson}}</td>
+        <td>{{b.dateOfBooking}}</td>
+      </tr>
+    </tbody>
+
+
+    </table>
+    
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceserviceService } from 'src/app/placeservice.service';
+import { ToursService } from 'src/app/tours.service';
+import { UserserviceService } from 'src/app/userservice.service';
 
 @Component({
   selector: 'app-tours',
@@ -9,13 +11,17 @@ import { PlaceserviceService } from 'src/app/placeservice.service';
 export class ToursComponent implements OnInit {
 
 
-  constructor(private placeservice:PlaceserviceService) { }
+  constructor(private placeservice:PlaceserviceService,private tourservice:ToursService,private userservice:UserserviceService) { }
   commonplaces:Array<any>=[]
   places:Array<any>=[]
   uniqueplaces:Array<any>=[]
   hidden=false
-
+  tours:Array<any>=[]
+  src=""
   ngOnInit(): void {
+    this.userservice.getProfileByIdApi(localStorage.getItem('userID')).subscribe(resp=>{
+      this.src=resp.data.profileImg
+    })
     this.placeservice.getAllCommonPlacesApi().subscribe(resp => {
       this.commonplaces = resp.data;
       console.log(this.commonplaces);
@@ -42,6 +48,10 @@ export class ToursComponent implements OnInit {
           }
         }
       })
+    })
+    this.tourservice.getAllToursApi().subscribe(resp=>{
+      this.tours=resp.data
+      console.log(this.tours);
     })
   }
   execute(){

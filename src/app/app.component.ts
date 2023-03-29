@@ -23,7 +23,7 @@ export class AppComponent {
     router.events.subscribe((val) => {
       if(location.path() != ''){
         this.route = location.path();
-        if(this.route=="/customer/home" || this.route=="/customer/tours")
+        if(this.route=="/customer/home" || this.route=="/customer/tours" || this.route=="/customer/profile")
     {
       this.isHome=false
     }

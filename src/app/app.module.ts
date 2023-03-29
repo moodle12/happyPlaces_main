@@ -48,6 +48,8 @@ import { AboutusComponent } from './customer/aboutus/aboutus.component';
 import { ProfileComponent } from './customer/profile/profile.component';
 import { PostComponent } from './customer/post/post.component';
 import { BookingComponent } from './customer/booking/booking.component';
+import { VsidebarComponent } from './vendor/vsidebar/vsidebar.component';
+import { VcontentComponent } from './vendor/vcontent/vcontent.component';
 
 
 
@@ -96,7 +98,9 @@ import { BookingComponent } from './customer/booking/booking.component';
    AboutusComponent,
    ProfileComponent,
    PostComponent,
-   BookingComponent
+   BookingComponent,
+   VsidebarComponent,
+   VcontentComponent
   ],
   imports: [
     BrowserModule,

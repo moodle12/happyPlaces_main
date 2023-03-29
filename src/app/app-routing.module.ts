@@ -30,6 +30,7 @@ import { PostComponent } from './customer/post/post.component';
 import { ProfileComponent } from './customer/profile/profile.component';
 import { ToursComponent } from './customer/tours/tours.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PlacesComponent } from './places/places.component';
@@ -41,35 +42,40 @@ const routes: Routes = [
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent},
   {path:"places",component:PlacesComponent},
-  {path:"admin/dashboard",component:DashboardComponent},
   {path:"customer/home",component:HomeComponent},
   {path:"forgetPassword",component:ForgotPasswordComponent},
   {path:"resetPassword",component:ResetPasswordComponent},
-  {path:"admin/listusers",component:ListusersComponent},
   {path:"logout",component:LogoutComponent},
-  {path:"admin/adduser",component:AdduserComponent},
-  {path:"admin/listplaces",component:ListPlacesComponent},
-  {path:"admin/addplaces",component:AddPlacesComponent},
-  {path:"admin/edituser/:userid",component:EdituserComponent},
-  {path:"admin/editplace/:placeid",component:EditplaceComponent},
-  {path:"admin/listactivities",component:ListactivitiesComponent},
-  {path:"admin/addactivities",component:AddactivitiesComponent},
-  {path:"admin/editactivity/:activityId",component:EditactivityComponent},
-  {path:"admin/listbookings",component:ListbookingsComponent},
-  {path:"admin/addbookings",component:AddbookingsComponent},
-  {path:"admin/editbooking/:bookingid",component:EditbookingComponent},
-  {path:"admin/listposts",component:ListpostsComponent},
-  {path:"admin/addposts",component:AddpostsComponent},
-  {path:"admin/editpost/:postId",component:EditpostComponent},
-  {path:"admin/listvendors",component:ListvendorsComponent},
-  {path:"admin/addvendor",component:AddvendorComponent},
-  {path:"admin/editvendor/:businessId",component:EditvendorComponent},
-  {path:"admin/listfeedbacks",component:ListfeedbacksComponent},
-  {path:"admin/addfeedback",component:AddfeedbackComponent},
+
+  {
+    path:"admin",children:[
+      {path:"adduser",component:AdduserComponent},
+      {path:"reports",component:ReportsComponent},
+      {path:"bookingreports",component:BookingsreportComponent},
+      {path:"listusers",component:ListusersComponent},
+      {path:"dashboard",component:DashboardComponent},
+      {path:"listplaces",component:ListPlacesComponent},
+      {path:"addplaces",component:AddPlacesComponent},
+      {path:"edituser/:userid",component:EdituserComponent},
+      {path:"editplace/:placeid",component:EditplaceComponent},
+      {path:"listactivities",component:ListactivitiesComponent},
+      {path:"addactivities",component:AddactivitiesComponent},
+      {path:"editactivity/:activityId",component:EditactivityComponent},
+      {path:"listbookings",component:ListbookingsComponent},
+      {path:"addbookings",component:AddbookingsComponent},
+      {path:"editbooking/:bookingid",component:EditbookingComponent},
+      {path:"listposts",component:ListpostsComponent},
+      {path:"addposts",component:AddpostsComponent},
+      {path:"editpost/:postId",component:EditpostComponent},
+      {path:"listvendors",component:ListvendorsComponent},
+      {path:"addvendor",component:AddvendorComponent},
+      {path:"editvendor/:businessId",component:EditvendorComponent},
+      {path:"listfeedbacks",component:ListfeedbacksComponent},
+      {path:"addfeedback",component:AddfeedbackComponent}
+    ],canActivate:[LoginGuard]
+  },
   {path:"vendor/dashboard",component:VdashboardComponent},
   {path:"customer/tours",component:ToursComponent},
-  {path:"admin/reports",component:ReportsComponent},
-  {path:"admin/bookingreports",component:BookingsreportComponent},
   {path:"customer/aboutus",component:AboutusComponent},
   {path:"customer/booking",component:BookingComponent},
   {path:"customer/post",component:PostComponent},

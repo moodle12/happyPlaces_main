@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
           this.toastr.success("Logged In Successfully..","Success",{timeOut:100})
         console.log("api resp");
         console.log(res);
+        localStorage.setItem("token",res.data.token)
         //console.log(res.data.userType.userTypeName);
         if (res.data.userType.userTypeName=="Admin") {
           this.toastr.success("Logged In Successfully..","Success",{timeOut:100})

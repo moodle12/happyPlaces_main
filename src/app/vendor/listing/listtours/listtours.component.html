@@ -1,0 +1,53 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-vsidebar></app-vsidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Tours</h4>
+      <a routerLink="/vendor/addtours">Add a Tour</a>
+      <br>
+      <h5>List Of My Tours</h5>
+      <table *ngIf="tours.length > 0"  datatable="ng"  id="listtours" >
+        <thead>
+        <tr>
+          <th>Place Name</th>
+          <th>Place Image</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Activity Name</th>
+          <th>Travel Company Name</th>
+          <th>Total Seats</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of tours">
+          <td>{{t.place.placeName}}</td>
+          <td><img src="{{t.place.placeImage}}" alt=""></td>
+          <td>{{t.place.lat}}</td>
+          <td>{{t.place.long}}</td>
+          <td>{{t.act.actType}}</td>
+          <td>{{t.vendor.businessName}}</td>
+          <td>{{t.noOfPerson}}</td>
+          <td>{{t.startDate}}</td>
+          <td>{{t.endDate}}</td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

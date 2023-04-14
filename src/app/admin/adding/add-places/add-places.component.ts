@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PlaceserviceService } from 'src/app/placeservice.service';
+import { UserserviceService } from 'src/app/userservice.service';
 
 @Component({
   selector: 'app-add-places',
@@ -22,7 +23,7 @@ export class AddPlacesComponent implements OnInit {
   activity:string="-1";
 
   activities: Array<any> = []
-  constructor(private router:Router,private placeservice:PlaceserviceService) { }
+  constructor(private router:Router,private placeservice:PlaceserviceService,private userservice:UserserviceService) { }
 
   ngOnInit(): void {
     this.placeservice.getAllActivitiesApi().subscribe(resp=>{

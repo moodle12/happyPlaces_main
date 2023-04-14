@@ -1,0 +1,52 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-vsidebar></app-vsidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Bookings</h4>
+      <a routerLink="/vendor/addbookings">Add a Booking</a>
+      <br>
+      <h5>List Of Bookings</h5>
+      <table *ngIf="bookings.length > 0"  datatable="ng"  id="listvbookings" >
+        <thead>
+        <tr>
+          <th>User's Name</th>
+          <th>Activity</th>
+          <th>Place</th>
+          <th>Status</th>
+          <th>No. Of Persons</th>
+          <th>Date of Booking</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let b of bookings">
+          <td>{{b.user.firstName}}</td>
+          <td>{{b.act.actType}}</td>
+          <td>{{b.place.placeName}}</td>
+          <td>{{b.status.statusName}}</td>
+          <td>{{b.noOfPerson}}</td>
+          <td>{{b.dateOfBooking}}</td>
+          <td><i class="typcn typcn-trash pointer" title="delete" (click)="deleteBooking(b._id)"></i></td>
+          <td><a routerLink="/admin/editbooking/{{b._id}}"><i class="typcn typcn-edit"></i></a></td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

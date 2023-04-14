@@ -36,7 +36,14 @@ import { LogoutComponent } from './logout/logout.component';
 import { PlacesComponent } from './places/places.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SignupComponent } from './signup/signup.component';
+import { AddplacesComponent } from './vendor/adding/addplaces/addplaces.component';
+import { ListplacesComponent } from './vendor/listing/listplaces/listplaces.component';
 import { VdashboardComponent } from './vendor/vdashboard/vdashboard.component';
+import { VprofileComponent } from './vendor/vprofile/vprofile.component';
+import { ListtoursComponent } from './vendor/listing/listtours/listtours.component';
+import { VlistactivitiesComponent } from './vendor/listing/vlistactivities/vlistactivities.component';
+import { VlistfeedbacksComponent } from './vendor/listing/vlistfeedbacks/vlistfeedbacks.component';
+import { VlistbookingsComponent } from './vendor/listing/vlistbookings/vlistbookings.component';
 
 const routes: Routes = [
   {path:"signup",component:SignupComponent},
@@ -74,7 +81,18 @@ const routes: Routes = [
       {path:"addfeedback",component:AddfeedbackComponent}
     ],canActivate:[LoginGuard]
   },
-  {path:"vendor/dashboard",component:VdashboardComponent},
+  {
+    path:"vendor",children:[
+      {path:"dashboard",component:VdashboardComponent},
+      {path:"listplaces",component:ListplacesComponent},
+      {path:"vlistactivities",component:VlistactivitiesComponent},
+      {path:"listtours",component:ListtoursComponent},
+      {path:"addplaces",component:AddplacesComponent},
+      {path:"listfeedbacks",component:VlistfeedbacksComponent},
+      {path:"listbookings",component:VlistbookingsComponent},
+      {path:"profile",component:VprofileComponent},
+    ],canActivate:[LoginGuard]
+  },
   {path:"customer/tours",component:ToursComponent},
   {path:"customer/aboutus",component:AboutusComponent},
   {path:"customer/booking",component:BookingComponent},

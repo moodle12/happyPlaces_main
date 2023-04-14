@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookingService } from 'src/app/booking.service';
 import { ToursService } from 'src/app/tours.service';
-import {formatDate } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import {MatDialog} from '@angular/material/dialog';
+import { ToursComponent } from '../tours/tours.component';
+import { PopupComponent } from '../popup/popup.component';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -15,15 +18,15 @@ export class BookingComponent implements OnInit {
   statuses: Array<any> = []
   tours:Array<any>=[]
 
-  startDate:Date=new Date();
-  endDate:Date=new Date();
+  startDate:String="";
+  endDate:String="";
   user="-1"
   place="-1"
   act="-1"
   status="-1"
   noOfPerson=0
   dateOfBooking=""
-  constructor(private bookingservice:BookingService,private router:Router,private tourservice:ToursService) { }
+  constructor(private bookingservice:BookingService,private router:Router,private tourservice:ToursService,private toastr:ToastrService,private dialogref:MatDialog) { }
 
   ngOnInit(): void {
     this.tourservice.getAllToursApi().subscribe(resp=>{
@@ -46,11 +49,20 @@ export class BookingComponent implements OnInit {
     //   "startDate":this.startDate
     // }
 
-    this.startDate=this.startDate
-    console.log(this.startDate);
+    // this.startDate=this.startDate
+    // console.log(this.startDate);
 
        this.tourservice.getToursByDate(this.startDate,this.endDate).subscribe(resp=>{
       this.tours=resp.data
+      if(this.tours.length!=0)
+      {
+        this.toastr.success("There are tours available","Success",{timeOut:1000})
+        this.dialogref.open(PopupComponent)
+      }
+      else
+      {
+        this.toastr.error("There are no tours available","Error",{timeOut:1000})
+      }
       console.log(this.tours);
     })
   }
@@ -64,7 +76,6 @@ export class BookingComponent implements OnInit {
       "noOfPerson":this.noOfPerson,
       "dateOfBooking":this.dateOfBooking
     }
-
     this.bookingservice.BookingApi(data).subscribe(res=>{
       console.log("Booking response ");
       console.log(res);

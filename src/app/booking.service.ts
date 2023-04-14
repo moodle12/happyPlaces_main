@@ -48,4 +48,7 @@ export class BookingService {
   {
     return this.http.put("http://localhost:9909/booking",data)
   }
+  getBookingByVendorApi(vendorid:any):Observable<any>{
+    return this.http.get("http://localhost:9909/getbookingbyvendor/"+vendorid);
+  }
 }

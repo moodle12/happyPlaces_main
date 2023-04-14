@@ -65,10 +65,11 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("/admin/dashboard")
         }
         else if(res.data.userType.userTypeName=="Vendor"){
+          localStorage.setItem('userID', res.data._id);
           this.toastr.success("Logged In Successfully..","Success",{timeOut:100})
             this.router.navigateByUrl("/vendor/dashboard")
         }
-        else if(res.data.userType.userTypeName=="Customer" || res.data.userType.userTypeName=="User1" ){
+        else if(res.data.userType.userTypeName=="Customer"){
           localStorage.setItem('userID', res.data._id);
           console.log(localStorage.getItem('userID'));
           this.toastr.success("Logged In Successfully..","Success",{timeOut:100})

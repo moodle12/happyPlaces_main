@@ -26,4 +26,7 @@ export class ActivityService {
   {
     return this.http.put("http://localhost:9909/activity",data)
   }
+  getActivityByVendorApi(vendorid:any):Observable<any>{
+    return this.http.get("http://localhost:9909/getactivitybyvendor/"+vendorid);
+  }
 }

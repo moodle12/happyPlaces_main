@@ -19,4 +19,8 @@ export class ToursService {
   {
     return this.http.get("http://localhost:9909/gettourbydate/"+startDate+"/"+endDate)
   }
+  getToursByVendor(vendorid:any):Observable<any>
+  {
+    return this.http.get("http://localhost:9909/gettourbyvendor/"+vendorid)
+  }
 }

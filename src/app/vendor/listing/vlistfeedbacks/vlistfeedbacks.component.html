@@ -1,0 +1,41 @@
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-vsidebar></app-vsidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Feedbacks</h4>
+      <br>
+      <h5>List Of Feedbacks</h5>
+      <table *ngIf="feedbacks.length > 0 "  datatable="ng"  id="listvfeedbacks" >
+        <thead>
+        <tr>
+          <th>User</th>
+          <th>Business Stars</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let f of feedbacks">
+          <td>{{f.user.firstName}} </td>
+          <td>{{f.businessStars}} </td>
+          <td>{{f.comment}} </td>
+        </tr>
+      </tbody>
+
+
+      </table>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

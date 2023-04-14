@@ -50,9 +50,18 @@ import { PostComponent } from './customer/post/post.component';
 import { BookingComponent } from './customer/booking/booking.component';
 import { VsidebarComponent } from './vendor/vsidebar/vsidebar.component';
 import { VcontentComponent } from './vendor/vcontent/vcontent.component';
-
-
-
+import { VheaderComponent } from './vendor/vheader/vheader.component';
+import { ListplacesComponent } from './vendor/listing/listplaces/listplaces.component';
+import { AddplacesComponent } from './vendor/adding/addplaces/addplaces.component';
+import { ListtoursComponent } from './vendor/listing/listtours/listtours.component';
+import { VprofileComponent } from './vendor/vprofile/vprofile.component';
+import { VlistactivitiesComponent } from './vendor/listing/vlistactivities/vlistactivities.component';
+import { VlistbookingsComponent } from './vendor/listing/vlistbookings/vlistbookings.component';
+import { VlistfeedbacksComponent } from './vendor/listing/vlistfeedbacks/vlistfeedbacks.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PopupComponent } from './customer/popup/popup.component';
+import { AddtoursComponent } from './vendor/adding/addtours/addtours.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +109,17 @@ import { VcontentComponent } from './vendor/vcontent/vcontent.component';
    PostComponent,
    BookingComponent,
    VsidebarComponent,
-   VcontentComponent
+   VcontentComponent,
+   VheaderComponent,
+   ListplacesComponent,
+   AddplacesComponent,
+   ListtoursComponent,
+   VprofileComponent,
+   VlistactivitiesComponent,
+   VlistbookingsComponent,
+   VlistfeedbacksComponent,
+   PopupComponent,
+   AddtoursComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +127,9 @@ import { VcontentComponent } from './vendor/vcontent/vcontent.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    MatDialogModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [],

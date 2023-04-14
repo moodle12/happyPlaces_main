@@ -1,0 +1,83 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_settings-panel.html -->
+   <app-vsidebar></app-vsidebar>
+    <!-- partial -->
+    <div class="main-panel m-3">
+      <h4>Manage Places</h4>
+      <a routerLink="/vendor/listplaces">List Of Places</a>
+      <br>
+      <h5>Add a Place</h5>
+
+         <div class="form-group">
+
+                  <input type="text" [(ngModel)]="placeName" [ngModelOptions]="{standalone: true}"  class="form-control form-control-lg" id="placename" placeholder="Place Name">
+                </div>
+
+                <div class="form-group">
+                  <label for="placeImage">Place Image</label>
+                  <input type="file" (change)="selectImage($event)"  name="placeImage" class="form-control form-control-lg" id="placeImage" placeholder="Place Image">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="lat" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" id="Latitude" placeholder="Latitude">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="long" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" id="Longitude" placeholder="Longitude">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <textarea [(ngModel)]="description" [ngModelOptions]="{standalone: true}"  class="form-control form-control-lg"  name="" id="desc" cols="30" rows="10" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="seats">Total Seats</label>
+                  <input type="number" [(ngModel)]="totalSeats" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" id="seats" placeholder="Total Seats">
+                </div>
+                <div class="form-group">
+                  <label for="price">Total Price</label>
+                  <input type="number" [(ngModel)]="totalPrice" [ngModelOptions]="{standalone: true}"  class="form-control form-control-lg" id="price" placeholder="Total Price">
+                </div>
+                <div class="form-group">
+                  <label for="day">Total Days</label>
+                  <input type="number" [(ngModel)]="totalDay" [ngModelOptions]="{standalone: true}"  class="form-control form-control-lg" id="day" placeholder="Total Days">
+                </div>
+                <div class="form-group">
+                  <label for="night">Total Nights</label>
+                  <input type="number" [(ngModel)]="totalNight" [ngModelOptions]="{standalone: true}"   class="form-control form-control-lg" id="night" placeholder="Total Nights">
+                </div>
+                <div class="form-group">
+                  Activities: <select [(ngModel)]="activity" [ngModelOptions]="{standalone: true}">
+                    <option value="-1">Select Activity</option>
+                    <option *ngFor="let a of activities"  value="{{a._id}}">{{a.actType}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="specialInstruction" [ngModelOptions]="{standalone: true}"  class="form-control form-control-lg" id="instruc" placeholder="Special Instructions">
+                </div>
+                <!-- <div class="mb-4">
+                  <div class="form-check">
+                    <label class="form-check-label text-muted">
+                      <input type="checkbox" class="form-check-input">
+                      I agree to all Terms & Conditions
+                    </label>
+                  </div>
+                </div> -->
+                <div class="mt-3">
+                  <button routerLink="/vendor/listplaces" (click)="addplace()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">ADD PLACE</button>
+
+                </div>
+      <!-- <app-content></app-content> -->
+        <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+    <app-footer></app-footer>
+      <!-- partial -->
+
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

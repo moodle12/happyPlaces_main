@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Available Tours</h3>
+  <div class="row">
+      <div class="col-md-6" *ngFor="let p of tours">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" alt="Bangkok Picture" style="height: 225px; width: 100%; display: block;" src={{p.place.placeImage}} data-holder-rendered="true">
+            <div class="card-body">
+      <h6> {{p.place.placeName}} - Total Days ({{p.place.totalDay}}) -Total Nights ({{p.place.totalNight}}) </h6>
+                <p class="card-text"><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size:larger">Title:</span>{{p.place.title}}</p>
+                <p class="card-text">Brief - {{p.place.description}} </p>
+                <p class="card-text">StartDate - {{p.startDate}}</p>
+                <p class="card-text">EndDate - {{p.endDate}}</p>
+                <p class="card-text"><span style="font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700">Special Instructions:</span>{{p.place.specialInstruction}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="thailand.html" role="button" class="btn btn-block btn-primary  shadow-lg shadow-cyan-500/50">More Information</a>
+                </div>
+            </div>
+          </div>
+</div>
+</div>
+</div>
